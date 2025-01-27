@@ -43,7 +43,7 @@ if st.button("Predict"):
     # Make prediction
     try:
         prediction = model.predict(input_data)
-        st.success(f"The predicted price is ₹ {prediction[0]:,.2f}L")
+        st.success(f"The predicted price is ₹ {prediction[0]:,.2f}C")
     except Exception as e:
         st.error(f"An error occurred during prediction: {str(e)}")
 
