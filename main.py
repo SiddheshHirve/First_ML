@@ -31,5 +31,5 @@ if st.button("Predict"):
                            floor_num, facing, age_possession, furnish_details]).reshape(1, -1)
     # Make prediction
     prediction = model.predict(input_data)
-    st.success(f"The predicted price is ₹ {prediction[0]:,.2f}")
+    st.success(f"The predicted price is ₹ {prediction[0]:,.2f}L")
 
