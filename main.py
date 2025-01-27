@@ -25,13 +25,25 @@ furnish_details = st.text_input("Furnish Details", "")  # Object
 
 # Prediction
 if st.button("Predict"):
-    # Prepare input data for numerical fields only
+    # Encode categorical fields if necessary
+    # Assuming categorical fields need to be encoded (e.g., one-hot or label encoding)
+    categorical_fields = [society, area_with_type, balcony, additional_room, facing, age_possession, furnish_details]
+    categorical_encoded = [hash(field) % 1000 if field else 0 for field in categorical_fields]  # Simple hash encoding
+
+    # Combine numerical and encoded categorical fields
+    input_data = np.array([
+        *categorical_encoded,
+        price_per_sqft,
+        area,
+        bedroom,
+        bathroom,
+        floor_num
+    ]).reshape(1, -1)
+
+    # Make prediction
     try:
-        # Convert inputs to a numerical array, ignoring categorical fields
-        input_data = np.array([price_per_sqft, area, bedroom, bathroom, floor_num]).reshape(1, -1)
-        
-        # Make prediction
         prediction = model.predict(input_data)
         st.success(f"The predicted price is ₹ {prediction[0]:,.2f}L")
     except Exception as e:
         st.error(f"An error occurred during prediction: {str(e)}")
+
