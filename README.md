@@ -44,25 +44,3 @@ app.py – Streamlit app script (provided above)
 model.pkl – Pre-trained machine learning model
 
 README.md – You're reading it!
-
-⚙️ How to Run the App Locally
-1. Clone the repository or copy the files
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/housing-price-app.git
-cd housing-price-app
-2. Install the required packages
-Make sure you have Python installed. Then run:
-
-bash
-Copy
-Edit
-pip install streamlit numpy
-3. Run the Streamlit app
-bash
-Copy
-Edit
-streamlit run app.py
-📝 Notes
-The model uses a simple hash-based encoding for categorical variables. In a production setup, it's recommended to use consistent and trained encoders (e.g., OneHotEncoder, LabelEncoder).
